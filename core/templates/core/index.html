@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+    <body>
+            {% load static %}
+            {% if list_of_aps %}
+                {% for ap in list_of_aps %}
+                    <li><a href="{% url 'core:detail' pk=ap.pk %}">{{ ap.numero }}</a></li>
+                {% endfor %}
+            {% else %}
+                No polls are available.
+            {% endif %}
+    </body>
+</html>
