@@ -26,9 +26,7 @@ class Apartamento(models.Model):
 class Proprietario(models.Model):
     nome = models.CharField('Nome', max_length=50)
     telefone = models.CharField('Telefone',max_length=20)
-
-    def cadastrar(self):
-        self.save()
+    #apartamentos = models.ManyToOneRel('Apartamento',on_delete=models.CASCADE)
 
 
 
