@@ -1,10 +1,8 @@
 # Create your views here.
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render, render_to_response
 
-
-from django.shortcuts import get_object_or_404, render
-
-
-from .models import Apartamento
+from .models import Apartamento, Proprietario
 
 
 def index(request):
@@ -16,3 +14,16 @@ def index(request):
 def detail(request, pk):
     ap = get_object_or_404(Apartamento, pk=pk)
     return render(request, 'core/detail.html', {'ap': ap})
+
+
+def cadastro(request):
+    if request.method == 'POST':
+        p = Proprietario()
+        p.nome = request.POST.get('nome','nome nao encontrado')
+        p.telefone = request.POST.get('telefone', 'telefone nao encontrado')
+        p.save()
+    return render(request, 'core/cadastro.html', {})
+
+
+def done(request):
+    return render(request, 'core/done.html', {})

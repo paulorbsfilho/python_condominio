@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro Proprietario</title>
+</head>
+<body>
+    <form method="POST">
+    {% csrf_token %}
+    <p><label for="nome">Nome:</label>
+    <input type="text" name="nome" maxlength="100" /></p>
+    <p><label for="telefone">Telefone:</label>
+    <input type="text" name="telefone" /></p>
+    <input type="submit" value="cadastrar" />
+    </form>
+</body>
+</html>

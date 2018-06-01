@@ -1,6 +1,7 @@
 from enum import Enum
 
 from django.db import models
+from django.forms import ModelForm
 
 
 class ChoiceEnum(Enum):
@@ -25,6 +26,10 @@ class Apartamento(models.Model):
 class Proprietario(models.Model):
     nome = models.CharField('Nome', max_length=50)
     telefone = models.CharField('Telefone',max_length=20)
+
+    def cadastrar(self):
+        self.save()
+
 
 
 class Fatura(models.Model):

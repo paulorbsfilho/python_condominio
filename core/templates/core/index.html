@@ -5,6 +5,11 @@
     <title>Hello</title>
 </head>
     <body>
+        <ul>
+            <li><a href="{% url 'core:index' %}">Inicio</a></li>
+            <li><a href="{% url 'core:cadastro' %}">cadastro</a></li>
+        </ul>
+        <ul>
             {% load static %}
             {% if list_of_aps %}
                 {% for ap in list_of_aps %}
@@ -13,5 +18,6 @@
             {% else %}
                 No polls are available.
             {% endif %}
+        </ul>
     </body>
 </html>
