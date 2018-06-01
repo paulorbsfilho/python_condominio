@@ -7,9 +7,11 @@
     <body>
         <ul>
             <li><a href="{% url 'core:index' %}">Inicio</a></li>
-            <li><a href="{% url 'core:cadastro' %}">cadastro</a></li>
+            <li><a href="{% url 'core:cadastro' %}">Cadastro de Proprietario</a></li>
+            <li><a href="{% url 'core:tipo_despesa' %}">Tipo de despesa</a></li>
         </ul>
         <ul>
+            <p>Apartamentos</p>
             {% load static %}
             {% if list_of_aps %}
                 {% for ap in list_of_aps %}

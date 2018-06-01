@@ -20,14 +20,12 @@ class Apartamento(models.Model):
     numero = models.IntegerField('Numero ap')
     qtdQuartos = models.IntegerField('Q. de quartos', default=0)
     ocupacao = models.CharField('Ocupacao', max_length=12, choices=TipoOcupacao.choices())
-
+    proprietario = models.ForeignKey('Proprietario', on_delete=models.CASCADE)
 
 
 class Proprietario(models.Model):
     nome = models.CharField('Nome', max_length=50)
     telefone = models.CharField('Telefone',max_length=20)
-    #apartamentos = models.ManyToOneRel('Apartamento',on_delete=models.CASCADE)
-
 
 
 class Fatura(models.Model):
@@ -48,6 +46,10 @@ class Despesa(models.Model):
 
 
 class TipoDespesa(models.Model):
+    OPCOES_DE_VALORES = (
+        ('S', 'Sim'),
+        ('N', 'Não')
+    )
     nome = models.CharField('Nome', max_length=50)
-    valor_rateado = models.BooleanField('Rateado?')
+    valor_rateado = models.CharField(max_length=1, choices=OPCOES_DE_VALORES, default='S')
 

@@ -8,9 +8,9 @@ from .models import Apartamento
 
 class ApartamentoAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Cadastro apartamento',{'fields': ['numero', 'qtdQuartos', 'ocupacao']})
+        ('Cadastro apartamento',{'fields': ['numero', 'qtdQuartos', 'ocupacao', 'proprietario']})
     ]
-    list_display = ('numero', 'qtdQuartos', 'ocupacao')
+    list_display = ('numero', 'qtdQuartos', 'ocupacao', 'proprietario')
     list_filter = ['qtdQuartos', 'ocupacao']
     search_fields = ['numero']
 

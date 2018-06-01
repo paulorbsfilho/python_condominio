@@ -1,8 +1,8 @@
 # Create your views here.
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, render_to_response
-
-from .models import Apartamento, Proprietario
+from .forms import *
+from .models import Apartamento, Proprietario, TipoDespesa
 
 
 def index(request):
@@ -25,5 +25,9 @@ def cadastro(request):
     return render(request, 'core/cadastro.html', {})
 
 
-def done(request):
-    return render(request, 'core/done.html', {})
+def tipodespesa(request):
+    form = TipoDespesaForm(request.POST or None)
+    if request.method =='POST':
+        if form.is_valid():
+            form.save()
+    return render(request, 'core/tipo_despesa.html', {'form': form})

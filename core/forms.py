@@ -1,5 +1,9 @@
 from django import forms
 
-class ProprietarioForm(forms.Form):
-    nome = forms.CharField(max_length=100)
-    telefone = forms.CharField(max_length=20)
+from .models import *
+
+class TipoDespesaForm(forms.ModelForm):
+
+    class Meta:
+        model = TipoDespesa
+        fields = '__all__'
