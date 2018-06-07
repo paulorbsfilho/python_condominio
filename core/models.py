@@ -1,7 +1,6 @@
 from enum import Enum
 
 from django.db import models
-from django.forms import ModelForm
 
 
 class ChoiceEnum(Enum):
@@ -11,15 +10,15 @@ class ChoiceEnum(Enum):
 
 
 class TipoOcupacao(ChoiceEnum):
-    PROPRIETARIO = 'P'
-    INQUILINO = 'I'
-    VAZIO = 'V'
+    PROPRIETARIO = 'Proprietario'
+    INQUILINO = 'Inquilino'
+    VAZIO = 'Vazio'
 
 
 class Apartamento(models.Model):
     numero = models.IntegerField('Numero ap')
     qtdQuartos = models.IntegerField('Q. de quartos', default=0)
-    ocupacao = models.CharField('Ocupacao', max_length=12, choices=TipoOcupacao.choices())
+    ocupacao = models.CharField('Ocupacao', max_length=20, choices=TipoOcupacao.choices())
     proprietario = models.ForeignKey('Proprietario', on_delete=models.CASCADE)
 
 
@@ -38,6 +37,7 @@ class Fatura(models.Model):
 class ItemFatura(models.Model):
     referencia = models.CharField('Ref', max_length=50)
     valor = models.FloatField()
+    fatura = models.ForeignKey('Fatura', on_delete=models.CASCADE)
 
 
 class Despesa(models.Model):

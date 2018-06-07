@@ -5,7 +5,6 @@ from .models import Apartamento
 # Register your models here.
 
 
-
 class ApartamentoAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Cadastro apartamento',{'fields': ['numero', 'qtdQuartos', 'ocupacao', 'proprietario']})
